@@ -1,10 +1,7 @@
 import adapter.EnviadorAdapter;
 import adapter.EnviadorRelatorio;
 import adapter.SistemaEnvio;
-import bridge.Boletim;
-import bridge.Formato;
-import bridge.Pdf;
-import bridge.Relatorio;
+import bridge.*;
 import decorator.CompressaoDecorator;
 import decorator.Gerador;
 import decorator.GeradorSimples;
@@ -14,8 +11,6 @@ import flyweight.DisciplinaFactory;
 import proxy.GeradorProxy;
 import facade.*;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
         // Flyweight
@@ -24,13 +19,22 @@ public class Main {
         Disciplina d2 = DisciplinaFactory.getDisciplina("Matemática");
         Disciplina d3 = DisciplinaFactory.getDisciplina("Física");
         System.out.println("\nComparações:");
-        System.out.println("d1 == d2 ? " + (d1 == d2)); 
+        System.out.println("d1 == d2 ? " + (d1 == d2));
         System.out.println("d1 == d3 ? " + (d1 == d3));
 
         // Bridge
         System.out.println("[MAIN] Criando relatório com Bridge...");
         Formato formato = new Pdf();
+        Formato json = new Json();
+        Formato csv = new Csv();
+
         Relatorio boletim = new Boletim(formato);
+        Relatorio historico = new Historico(csv);
+        Relatorio frequencia = new Frequencia(json);
+
+        System.out.println("[MAIN] Relatorio PDF\n" + boletim.gerar());
+        System.out.println("[MAIN] Relatorio CSV\n" + historico.gerar());
+        System.out.println("[MAIN] Relatorio JSON\n" + frequencia.gerar());
 
         // Decorator + Proxy
         System.out.println("\n[MAIN] Configurando gerador com Decorator + Proxy...");

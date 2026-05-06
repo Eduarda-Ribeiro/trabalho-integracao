@@ -1,5 +1,7 @@
 package bridge;
 
+import java.util.Map;
+
 public interface Formato {
-    String gerar(String dados);
+    String gerar(Map<String, Object> dados);
 }

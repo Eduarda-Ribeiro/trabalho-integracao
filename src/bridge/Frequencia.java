@@ -2,10 +2,10 @@ package bridge;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.RecursiveTask;
 
-public class Boletim extends Relatorio {
-
-    public Boletim (Formato formato) {
+public class Frequencia extends Relatorio {
+    public Frequencia(Formato formato) {
         super(formato);
     }
 
@@ -13,7 +13,6 @@ public class Boletim extends Relatorio {
         Map<String, Object> dados = new HashMap<>();
         dados.put("aluno", "Maria");
         dados.put("disciplina", "Matemática");
-        dados.put("nota", 8.5);
         dados.put("frequencia", "90%");
         return dados;
     }

@@ -3,18 +3,16 @@ package bridge;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Boletim extends Relatorio {
-
-    public Boletim (Formato formato) {
+public class Historico extends Relatorio {
+    public Historico(Formato formato) {
         super(formato);
     }
 
     protected Map<String, Object> gerarDados() {
         Map<String, Object> dados = new HashMap<>();
         dados.put("aluno", "Maria");
-        dados.put("disciplina", "Matemática");
-        dados.put("nota", 8.5);
-        dados.put("frequencia", "90%");
+        dados.put("curso", "Administração");
+        dados.put("semestres", 8);
         return dados;
     }
 }

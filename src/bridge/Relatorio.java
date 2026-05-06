@@ -1,5 +1,7 @@
 package bridge;
 
+import java.util.Map;
+
 public abstract class Relatorio {
     protected Formato formato;
 
@@ -7,5 +9,9 @@ public abstract class Relatorio {
         this.formato = formato;
     }
 
-    public abstract String gerar();
+    protected abstract Map<String, Object> gerarDados();
+
+    public String gerar() {
+        return formato.gerar(gerarDados());
+    }
 }
