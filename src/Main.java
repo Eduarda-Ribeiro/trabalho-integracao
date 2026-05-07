@@ -21,9 +21,10 @@ public class Main {
         System.out.println("\nComparações:");
         System.out.println("d1 == d2 ? " + (d1 == d2));
         System.out.println("d1 == d3 ? " + (d1 == d3));
+        System.out.println("\n");
 
         // Bridge
-        System.out.println("[MAIN] Criando relatório com Bridge...");
+        System.out.println("[MAIN] Criando relatório com Bridge...\n");
         Formato formato = new Pdf();
         Formato json = new Json();
         Formato csv = new Csv();
@@ -32,9 +33,9 @@ public class Main {
         Relatorio historico = new Historico(csv);
         Relatorio frequencia = new Frequencia(json);
 
-        System.out.println("[MAIN] Relatorio PDF\n" + boletim.gerar());
-        System.out.println("[MAIN] Relatorio CSV\n" + historico.gerar());
-        System.out.println("[MAIN] Relatorio JSON\n" + frequencia.gerar());
+        System.out.println("\n[MAIN] Relatorio PDF\n" + boletim.gerar());
+        System.out.println("\n[MAIN] Relatorio CSV\n" + historico.gerar());
+        System.out.println("\n[MAIN] Relatorio JSON\n" + frequencia.gerar());
 
         // Decorator + Proxy
         System.out.println("\n[MAIN] Configurando gerador com Decorator + Proxy...");
