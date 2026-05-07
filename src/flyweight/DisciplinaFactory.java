@@ -11,7 +11,6 @@ public class DisciplinaFactory {
             System.out.println("[FLYWEIGHT] Reutilizando disciplina: " + nome);
             return cache.get(nome);
         }
-
         System.out.println("[FLYWEIGHT] Criando nova disciplina: " + nome);
         Disciplina disciplina = new Disciplina(nome);
         cache.put(nome, disciplina);
